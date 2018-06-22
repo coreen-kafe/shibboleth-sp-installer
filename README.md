@@ -48,6 +48,11 @@ sh install.sh
 - https://접속주소/로 접근하면 로그인이 가능합니다.
 - https://접속주소/secure에서 로그아웃이 가능합니다.
 
+# attribute-map
+
+- 사용하는 attribute들은 /install/conf/attribute-map.xml 파일에 등록되어 있어야 합니다.
+
+# shibboleth2 설정 
 
 ## 설치된 Service Provider의 메타데이터
 
