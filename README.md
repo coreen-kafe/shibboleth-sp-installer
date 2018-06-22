@@ -24,7 +24,7 @@ service iptables stop
 
 ## 설치 방법
 
-설치전에 환경설정(install.sh)을 하십시요. 
+설치 전에 환경설정(install.sh)을 하십시요.
 
 <pre>
 <code>
@@ -79,6 +79,23 @@ sh install.sh
  Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"/>
  </md:AttributeConsumingService>
 </Handler>
+```
+
+- 내장형 또는 내장형 탐색서비스(discovery service)를 이용할 수 있습니다. KAFE의 탐색서비스 URL(discoveryURL)은 https://ds.kreonet.net/kafe 입니다. 
+내장형 탐색서비스의 주소는 https://FQDN/shibboleth-ds/index.html입니다. /install/conf/shibboleth2.xml에서 아래 부분을 수정하십시오.
+
+```XML
+<SSO discoveryProtocol="SAMLDS" discoveryURL="https://ds.kreonet.net/kafe">
+ SAML2 SAML1
+</SSO>
+```
+탐색서비스를 이용하지 않고 ID 제공자와 1:1로 연결할 때는 아래와 같이 entityID를 설정하십시오. 1:1로 연결되면 항상 동일한 ID 제공자로 로그인하게 됩니다.
+연결한 ID 제공자의 entityID(개체 식별자)를 사전에 알고 있어야 합니다.
+
+```XML
+<SSO entityID="ID 제공자의 entityID" discoveryProtocol="SAMLDS" discoveryURL="https://ds.kreonet.net/kafe">
+ SAML2 SAML1
+</SSO>
 ```
 
 ## 설치된 Service Provider의 메타데이터
