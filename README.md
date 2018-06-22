@@ -58,8 +58,7 @@ sh install.sh
 메타데이터에 요구 속성을 추가, 수정, 삭제하기 위해서는 아래 설정을 수정하십시오. 아래 ServiceName의 값을 수정하십시오.
 설치과정에서 /etc/shibboleth/shibboleth2.xml 파일에 복사됩니다.
 
-<pre>
-<code>
+```XML
 <Handler type="MetadataGenerator" Location="/Metadata" signing="false" >
  <md:AttributeConsumingService index="1">
  <md:ServiceName xml:lang="en">Shibboleth SP Test</md:ServiceName>
@@ -80,9 +79,7 @@ sh install.sh
  Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"/>
  </md:AttributeConsumingService>
 </Handler>
-</code>
-</pre>
-
+```
 
 ## 설치된 Service Provider의 메타데이터
 
