@@ -31,8 +31,11 @@ service iptables stop
 CONNECTOR: AJP를 이용할 경우, AJP로 설정
 DOMAINNAME: FQQN(Fully Qualified Domain Name) 이나 IP 주소
 DISCOVERY: EDS(Embedded Discovery Service) 또는 KAFE 제공 CDS(Central DS)
+CONTACT: 서비스 관리자의 email 주소
 </code>
 </pre>
+
+- 설치과정에서 SAML용 인증서를 생성합니다. 인증서 생성시 Common Name (eg, your name or your server's hostname)은 반드시 FQDN(서버에 할당된/등록된 도메인 이름)을 입력하십시오.
 
 <pre>
 <code>
@@ -58,6 +61,8 @@ sh install.sh
 - 사용하는 attribute들은 /install/conf/attribute-map.xml 파일에 등록되어 있어야 합니다. Shibboleth를 설치하기 전에 attribute-map을 설정하십시오.
 
 ### shibboleth2 설정 
+
+스크립트 설치 전이라면 /install/conf/shibboleth2.xml을 수정하시고, 스크립트 설치 후에는 /etc/shibboleth/shibboleth2.xml을 수정해야 합니다.
 
 - shibooleth2의 환경설정은 /install/conf/shibboleth2.xml 파일을 이용합니다. 
 메타데이터에 요구 속성을 추가, 수정, 삭제하기 위해서는 아래 설정을 수정하십시오. 아래 ServiceName의 값을 수정하십시오.
@@ -95,20 +100,13 @@ sh install.sh
 </SSO>
 ```
 탐색서비스를 이용하지 않고 ID 제공자와 1:1로 연결할 때는 아래와 같이 entityID를 설정하십시오. 1:1로 연결되면 항상 동일한 ID 제공자로 로그인하게 됩니다.
-연결한 ID 제공자의 entityID(개체 식별자)를 사전에 알고 있어야 합니다.
+연결한 ID 제공자의 entityID(개체 식별자)를 사전에 알고 있어야 합니다. 
+KAFE에서는 설정 검증용 ID 제공자를 제공하고 있습니다. https://testidp.kreonet.net에서 사용자 계정을 생성하고 메타데이터를 확인하십시오.
 
 ```XML
 <SSO entityID="ID 제공자의 entityID" discoveryProtocol="SAMLDS" discoveryURL="https://ds.kreonet.net/kafe">
  SAML2 SAML1
 </SSO>
-```
-
-- Contact 정보(supportContact)를 설정하십시오.
-
-```XML
-<Errors supportContact="root@localhost"
- helpLocation="/about.html"
- styleSheet="/shibboleth-sp/main.css"/>
 ```
 
 ## 설치된 Service Provider의 메타데이터
