@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# jiny92@kisti.re.kr
+
+
+
 SCRIPTDIR=$(dirname "$0")
 DATE=$( date +%d-%m-%y )
 
@@ -9,8 +13,9 @@ DATE=$( date +%d-%m-%y )
 #
 ###################################
 CONNECTOR="AJP"
-DOMAINNAME="1.7.1.4"
+DOMAINNAME="1.5.1.4"
 DISCOVERY="EDS"
+CONTACT="you@email.com"
 
 ###################################
 #
@@ -94,8 +99,9 @@ openssl req -newkey rsa:4096 -sha256 -new -x509 -days 3650 -nodes -text -out shi
 chmod 644 shibsp.*
 mv shibsp.* /etc/shibboleth
 
-
 cp $(pwd)/conf/shibboleth2.xml $(pwd)/conf/shibboleth2.xml.back
+
+sed -i "s/root@localhost/$CONTACT/g" $SCRIPTDIR/conf/shibboleth2.xml.back
 
 if [ "$CONNECTOR" != "AJP" ]
 then
@@ -149,6 +155,14 @@ yum -y install mod_ssl openssl
 mkdir -p "/var/www/html/secure"
 cp html/main.php /var/www/html/index.php
 cp html/sub.php /var/www/html/secure/index.php
+
+if [ "$CONNECTOR" == "AJP" ]
+then
+    sed -i 's/displayName/AJP_displayName/g' /var/www/html/secure/index.php
+    sed -i 's/cn/AJP_cn/g' /var/www/html/secure/index.php
+    sed -i 's/givenName/AJP_givenName/g' /var/www/html/secure/index.php
+fi
+
 
 ###################################
 #
