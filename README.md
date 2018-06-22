@@ -48,11 +48,41 @@ sh install.sh
 - https://접속주소/로 접근하면 로그인이 가능합니다.
 - https://접속주소/secure에서 로그아웃이 가능합니다.
 
-# attribute-map
+### attribute-map
 
-- 사용하는 attribute들은 /install/conf/attribute-map.xml 파일에 등록되어 있어야 합니다.
+- 사용하는 attribute들은 /install/conf/attribute-map.xml 파일에 등록되어 있어야 합니다. Shibboleth를 설치하기 전에 attribute-map을 설정하십시오.
 
-# shibboleth2 설정 
+### shibboleth2 설정 
+
+- shibooleth2의 환경설정은 /install/conf/shibboleth2.xml 파일을 이용합니다. 
+메타데이터에 요구 속성을 추가, 수정, 삭제하기 위해서는 아래 설정을 수정하십시오. 아래 ServiceName의 값을 수정하십시오.
+설치과정에서 /etc/shibboleth/shibboleth2.xml 파일에 복사됩니다.
+
+<pre>
+<code>
+     <Handler type="MetadataGenerator" Location="/Metadata" signing="false" >
+                <md:AttributeConsumingService index="1">
+                <md:ServiceName xml:lang="en">Shibboleth SP Test</md:ServiceName>
+                <md:RequestedAttribute FriendlyName="displayName"
+                Name="urn:oid:2.16.840.1.113730.3.1.241"/>
+                <md:RequestedAttribute FriendlyName="mail"
+                Name="urn:oid:0.9.2342.19200300.100.1.3"/>
+                <md:RequestedAttribute FriendlyName="uid"
+                Name="urn:oid:0.9.2342.19200300.100.1.1"/>
+                <md:RequestedAttribute FriendlyName="orgName" Name="urn:oid:2.5.4.10"/>
+                <md:RequestedAttribute FriendlyName="eppn"
+                Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6"/>
+                <md:RequestedAttribute FriendlyName="persistent-id"
+                Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10"/>
+                <md:RequestedAttribute FriendlyName="schacHomeOrganization"
+                Name="urn:oid:1.3.6.1.4.1.25178.1.2.9"/>
+                <md:RequestedAttribute FriendlyName="unscoped-affiliation"
+                Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"/>
+                </md:AttributeConsumingService>
+     </Handler>
+</code>
+</pre>
+
 
 ## 설치된 Service Provider의 메타데이터
 

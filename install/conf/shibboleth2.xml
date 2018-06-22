@@ -51,7 +51,7 @@
             <!-- Extension service that generates "approximate" metadata based on SP configuration. -->
             <Handler type="MetadataGenerator" Location="/Metadata" signing="false" >
 		<md:AttributeConsumingService index="1">
-		<md:ServiceName xml:lang="en">Liferay Test</md:ServiceName>
+		<md:ServiceName xml:lang="en">Shibboleth SP Test</md:ServiceName>
 		<md:RequestedAttribute FriendlyName="displayName" 
 		Name="urn:oid:2.16.840.1.113730.3.1.241"/> 
 		<md:RequestedAttribute FriendlyName="mail" 
