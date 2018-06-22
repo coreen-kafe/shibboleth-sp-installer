@@ -10,17 +10,18 @@ CentOS 6.9에서 동작합니다. 하지만 다른 버전, 다른 리눅스 배�
 
 ## 설치 전 필수 사항
 
-selinux와 iptables를 중지시킵니다.
-- setenforce 0
-- service iptables stop
+- selinux와 iptables를 중지시킵니다.
+<pre>
+<code>
+setenforce 0
+service iptables stop
+</code>
+</pre>
 
-HTTPS가 동작하도록 미리 환경설정이 되어 있어야 합니다.
-
-NTP 설정을 통해 시간을 동기화해야 합니다.
-
-Discovery Service에 Identity Provider가 등록되어 있어야 합니다. 본 스크립트는 KAFE test federation 메타데이터를 이용하며 KAFE 인증서를 통해 서명을 검증합니다.
-
-하나 이상의 Identity Provider가 설치하고자 하는 Service Provider의 메타데이터를 저장하고 있어야 합니다.
+- HTTPS가 동작하도록 미리 환경설정이 되어 있어야 합니다.
+- NTP 설정을 통해 시간을 동기화해야 합니다.
+- Discovery Service에 Identity Provider가 등록되어 있어야 합니다. 본 스크립트는 KAFE test federation 메타데이터를 이용하며 KAFE 인증서를 통해 서명을 검증합니다.
+- 하나 이상의 Identity Provider가 설치하고자 하는 Service Provider의 메타데이터를 저장하고 있어야 합니다.
 
 
 ## 설치 방법
@@ -35,8 +36,12 @@ DISCOVERY: EDS(Embedded Discovery Service) 또는 KAFE 제공 CDS(Central DS)
 </code>
 </pre>
 
-cd shibboleth-sp
+<pre>
+<code>
+cd shibboleth-sp-installer
 sh install.sh
+</code>
+</pre>
 
 
 ## 이용 방법
