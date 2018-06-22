@@ -60,26 +60,26 @@ sh install.sh
 
 <pre>
 <code>
-     <Handler type="MetadataGenerator" Location="/Metadata" signing="false" >
-                <md:AttributeConsumingService index="1">
-                <md:ServiceName xml:lang="en">Shibboleth SP Test</md:ServiceName>
-                <md:RequestedAttribute FriendlyName="displayName"
-                Name="urn:oid:2.16.840.1.113730.3.1.241"/>
-                <md:RequestedAttribute FriendlyName="mail"
-                Name="urn:oid:0.9.2342.19200300.100.1.3"/>
-                <md:RequestedAttribute FriendlyName="uid"
-                Name="urn:oid:0.9.2342.19200300.100.1.1"/>
-                <md:RequestedAttribute FriendlyName="orgName" Name="urn:oid:2.5.4.10"/>
-                <md:RequestedAttribute FriendlyName="eppn"
-                Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6"/>
-                <md:RequestedAttribute FriendlyName="persistent-id"
-                Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10"/>
-                <md:RequestedAttribute FriendlyName="schacHomeOrganization"
-                Name="urn:oid:1.3.6.1.4.1.25178.1.2.9"/>
-                <md:RequestedAttribute FriendlyName="unscoped-affiliation"
-                Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"/>
-                </md:AttributeConsumingService>
-     </Handler>
+<Handler type="MetadataGenerator" Location="/Metadata" signing="false" >
+ <md:AttributeConsumingService index="1">
+ <md:ServiceName xml:lang="en">Shibboleth SP Test</md:ServiceName>
+ <md:RequestedAttribute FriendlyName="displayName"
+ Name="urn:oid:2.16.840.1.113730.3.1.241"/>
+ <md:RequestedAttribute FriendlyName="mail"
+ Name="urn:oid:0.9.2342.19200300.100.1.3"/>
+ <md:RequestedAttribute FriendlyName="uid"
+ Name="urn:oid:0.9.2342.19200300.100.1.1"/>
+ <md:RequestedAttribute FriendlyName="orgName" Name="urn:oid:2.5.4.10"/>
+ <md:RequestedAttribute FriendlyName="eppn"
+ Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6"/>
+ <md:RequestedAttribute FriendlyName="persistent-id"
+ Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10"/>
+ <md:RequestedAttribute FriendlyName="schacHomeOrganization"
+ Name="urn:oid:1.3.6.1.4.1.25178.1.2.9"/>
+ <md:RequestedAttribute FriendlyName="unscoped-affiliation"
+ Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"/>
+ </md:AttributeConsumingService>
+</Handler>
 </code>
 </pre>
 
