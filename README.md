@@ -48,6 +48,11 @@ sh install.sh
 - https://접속주소/로 접근하면 로그인이 가능합니다.
 - https://접속주소/secure에서 로그아웃이 가능합니다.
 
+설치되는 파일들(index.php)은 login/logout 방법을 보여주기 위한 예시입니다. 프로덕션 환경에서는 보안을 고려하여 재작성하시기 바랍니다.
+
+
+이용 중 의문사항은 KAFE(coreen@kreonet.net)으로 연락하시기 바랍니다. 
+
 ### attribute-map
 
 - 사용하는 attribute들은 /install/conf/attribute-map.xml 파일에 등록되어 있어야 합니다. Shibboleth를 설치하기 전에 attribute-map을 설정하십시오.
@@ -96,6 +101,14 @@ sh install.sh
 <SSO entityID="ID 제공자의 entityID" discoveryProtocol="SAMLDS" discoveryURL="https://ds.kreonet.net/kafe">
  SAML2 SAML1
 </SSO>
+```
+
+- Contact 정보(supportContact)를 설정하십시오.
+
+```XML
+<Errors supportContact="root@localhost"
+ helpLocation="/about.html"
+ styleSheet="/shibboleth-sp/main.css"/>
 ```
 
 ## 설치된 Service Provider의 메타데이터
