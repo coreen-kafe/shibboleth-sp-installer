@@ -112,3 +112,6 @@ KAFE에서는 검증용 ID 제공자를 제공하고 있습니다. https://testi
 
 https://접속주소/Shibboleth.sso/Metadata에서 메타데이터를 확인할 수 있습니다.
 
+
+## 주의 사항
+TMAX JEUS WAS는 AJP의 optional 환경변수를 지원하지 않기 때문에 mod_ajp를 이용해 속성정보를 전달할 수 없습니다. TMAX JEUS WAS의 연동 방법에 대해서는 support@kafe.or.kr에 문의하십시오.
